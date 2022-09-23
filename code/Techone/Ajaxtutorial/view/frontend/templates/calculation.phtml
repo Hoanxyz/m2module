@@ -1,0 +1,24 @@
+<?php
+/** @var \Techone\Ajaxtutorial\Block\Index\Index $block */
+?>
+
+<div class="row clearfix" id="ajax-box">
+    <div class="col-md-12 column">
+        <form name="form_value" method="POST" id="form_value" action="<?php echo $block->getBaseUrl().'ajaxtutorial/result/result/' ?>">
+            <label>Number one</label>
+            <input type="text" name="numone" class="form-control input-md" style="margin:20px;width:300px;" autocomplete="off">
+            <label>Number two</label>
+            <input type="text" name="numtwo" class="form-control input-md" style="margin:20px;width:300px;" autocomplete="off">
+            <input type="submit" id="calculateTotalSubmit"  name="calculate-total-submit" value="Calculate Total">
+        </form>
+        <div class="result-box">Result: <div class="result" style="display:none"></div></div>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#ajax-box": {
+            "Techone_Ajaxtutorial/js/ajax-test": {}
+        }
+    }
+</script>

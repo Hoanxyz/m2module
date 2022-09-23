@@ -1,0 +1,25 @@
+<?php
+/**
+ * @var \Techone\Ajaxtutorial\Block\Product\ProductList $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+
+<div data-bind="scope: 'product-list'" id="product-list-custom">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "product-list": {
+                    "component": "Techone_Ajaxtutorial/js/product/list",
+                    "productList": "<?= $escaper->escapeJs($block->getProductCollection()); ?>"
+                }
+            }
+        }
+    }
+}
+</script>
