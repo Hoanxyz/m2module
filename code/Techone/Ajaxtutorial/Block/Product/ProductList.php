@@ -9,6 +9,7 @@ use Magento\Framework\Json\Helper\Data;
 use Magento\Framework\View\Element\Template;
 use Magento\Store\Model\StoreManager;
 use Magento\Framework\Controller\Result\JsonFactory;
+use Magento\Framework\Pricing\Helper\Data as HelperPrice;
 
 class ProductList extends Template
 {
@@ -16,6 +17,7 @@ class ProductList extends Template
     protected $imageHelper;
     protected $listProduct;
     protected $resultJsonFactory;
+    protected $priceHelper;
 
     /**
      * @var Data
@@ -30,6 +32,7 @@ class ProductList extends Template
         Context $context,
         CollectionFactory $productCollectionFactory,
         Data $jsonHelper,
+        HelperPrice $priceHelper,
         array $data = []
     )
     {
@@ -37,6 +40,7 @@ class ProductList extends Template
         $this->resultJsonFactory = $resultJsonFactory;
         $this->productCollectionFactory = $productCollectionFactory;
         $this->jsonHelper = $jsonHelper;
+        $this->priceHelper = $priceHelper;
         parent::__construct($context, $data);
     }
 
@@ -44,7 +48,7 @@ class ProductList extends Template
     {
         $collection = $this->productCollectionFactory->create();
         $collection->addAttributeToSelect('*');
-        $collection->setPageSize(3);
+        $collection->setPageSize(2);
         $productsData = [];
 
         if ($collection) {
@@ -52,7 +56,7 @@ class ProductList extends Template
                 $itemData = [
                     'entity_id' => $product->getId(),
                     'name' => $product->getName(),
-                    'price' => $product->getPrice(),
+                    'price' => $this->priceHelper->currency($product->getPrice(), true, false),
                     'src' => $this->imageHelper->init($product, 'product_base_image')->getUrl(),
                     'url' => $product->getProductUrl()
                 ];

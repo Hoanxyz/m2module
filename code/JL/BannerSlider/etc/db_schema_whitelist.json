@@ -1,0 +1,43 @@
+{
+    "jl_bannerslider_slider": {
+        "column": {
+            "slider_id": true,
+            "name": true,
+            "status": true,
+            "autoplay": true,
+            "autoplay_time": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "jl_bannerslider_banner": {
+        "column": {
+            "banner_id": true,
+            "name": true,
+            "status": true,
+            "content_desktop": true,
+            "image_desktop": true,
+            "content_mobile": true,
+            "image_mobile": true,
+            "url": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "jl_bannerslider_slider_banner": {
+        "column": {
+            "slider_id": true,
+            "banner_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_036AAC556EF11BF7437E3CB1E5DA906D": true,
+            "FK_A6D506393B71841ECD1027D4DC29851F": true
+        },
+        "index": {
+            "JL_BANNERSLIDER_SLIDER_BANNER_SLIDER_ID_BANNER_ID": true
+        }
+    }
+}

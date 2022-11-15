@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="jl_bannerslider_slider" resource="default" engine="innodb" comment="Slider">
+        <column xsi:type="int" name="slider_id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="128" comment="Name"/>
+        <column xsi:type="smallint" name="status" default="1" nullable="false" comment="Status"/>
+        <column xsi:type="smallint" name="autoplay" default="1" nullable="false" comment="Autoplay"/>
+        <column xsi:type="varchar" name="autoplay_time" nullable="true" length="128" comment="Autoplay Time"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="slider_id"/>
+        </constraint>
+    </table>
+
+    <table name="jl_bannerslider_banner" resource="default" engine="innodb" comment="banner">
+        <column xsi:type="int" name="banner_id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="512" comment="Name"/>
+        <column xsi:type="smallint" name="status" default="1" nullable="false" comment="Status"/>
+        <column xsi:type="text" name="content_desktop" nullable="true" comment="Content Desktop"/>
+        <column xsi:type="text" name="image_desktop" nullable="false" comment="Image Desktop"/>
+        <column xsi:type="text" name="content_mobile" nullable="true" comment="Content Mobile"/>
+        <column xsi:type="text" name="image_mobile" nullable="false" comment="Image Mobile"/>
+        <column xsi:type="varchar" name="url" nullable="true" length="128" comment="URL"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="banner_id"/>
+        </constraint>
+    </table>
+
+    <table name="jl_bannerslider_slider_banner" resource="default" engine="innodb" comment="banner">
+        <column xsi:type="int" name="slider_id" unsigned="true" nullable="false" comment="Slider ID"/>
+        <column xsi:type="int" name="banner_id" unsigned="true" nullable="false" comment="Banner ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="slider_id"/>
+            <column name="banner_id"/>
+        </constraint>
+        <index referenceId="JL_BANNERSLIDER_SLIDER_BANNER_SLIDER_ID_BANNER_ID" indexType="btree">
+            <column name="slider_id"/>
+            <column name="banner_id"/>
+        </index>
+        <constraint xsi:type="foreign" referenceId="JL_BANNERSLIDER_SLIDER_BANNER_SLIDER_ID_JL_BANNERSLIDER_SLIDER_SLIDER_ID"
+                    table="jl_bannerslider_slider_banner" column="slider_id" referenceTable="jl_bannerslider_slider"
+                    referenceColumn="slider_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="JL_BANNERSLIDER_SLIDER_BANNER_BANNER_ID_JL_BANNERSLIDER_BANNER_BANNER_ID"
+                    table="jl_bannerslider_slider_banner" column="banner_id" referenceTable="jl_bannerslider_banner"
+                    referenceColumn="banner_id" onDelete="CASCADE"/>
+    </table>
+</schema>

@@ -34,7 +34,7 @@ class Product extends \Magento\Framework\App\Action\Action
         return $this->productFactory->create()
             ->getCollection()
             ->addAttributeToSelect('*')
-            ->setPageSize(5);
+            ->setPageSize(2);
     }
 
     public function execute()
