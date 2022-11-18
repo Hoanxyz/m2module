@@ -31,13 +31,13 @@
             "slider_id": true,
             "banner_id": true
         },
+        "index": {
+            "JL_BANNERSLIDER_SLIDER_BANNER_SLIDER_ID_BANNER_ID": true
+        },
         "constraint": {
             "PRIMARY": true,
             "FK_036AAC556EF11BF7437E3CB1E5DA906D": true,
             "FK_A6D506393B71841ECD1027D4DC29851F": true
-        },
-        "index": {
-            "JL_BANNERSLIDER_SLIDER_BANNER_SLIDER_ID_BANNER_ID": true
         }
     }
 }

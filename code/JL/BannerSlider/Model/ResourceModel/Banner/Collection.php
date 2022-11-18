@@ -1,6 +1,6 @@
 <?php
 
-namespace JL\BannerSlider\ResourceModel\Banner;
+namespace JL\BannerSlider\Model\ResourceModel\Banner;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 use JL\BannerSlider\Model\ResourceModel\Banner as ResourceBanner;
