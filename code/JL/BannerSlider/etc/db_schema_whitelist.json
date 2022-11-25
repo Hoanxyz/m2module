@@ -5,7 +5,9 @@
             "name": true,
             "status": true,
             "autoplay": true,
-            "autoplay_time": true
+            "autoplay_time": true,
+            "creation_time": true,
+            "update_time": true
         },
         "constraint": {
             "PRIMARY": true
@@ -20,7 +22,9 @@
             "image_desktop": true,
             "content_mobile": true,
             "image_mobile": true,
-            "url": true
+            "url": true,
+            "creation_time": true,
+            "update_time": true
         },
         "constraint": {
             "PRIMARY": true
@@ -29,7 +33,9 @@
     "jl_bannerslider_slider_banner": {
         "column": {
             "slider_id": true,
-            "banner_id": true
+            "banner_id": true,
+            "creation_time": true,
+            "update_time": true
         },
         "index": {
             "JL_BANNERSLIDER_SLIDER_BANNER_SLIDER_ID_BANNER_ID": true

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="JL_BannerSlider::vendor_title" title="JL " module="JL_BannerSlider" sortOrder="20" resource="JL_BannerSlider::title_vendor" />
-        <add id="JL_BannerSlider::module_title" title="JL Banner Slider" module="JL_BannerSlider" sortOrder="20" parent="JL_BannerSlider::vendor_title" resource="JL_BannerSlider::title_module" />
-        <add id="JL_BannerSlider::manage_banners" title="Manage Banner" module="JL_BannerSlider" sortOrder="1" parent="JL_BannerSlider::module_title" action="jlbannerslider/banners/index" resource="JL_BannerSlider::manage_banners" />
-        <add id="JL_BannerSlider::manage_sliders" title="Manage Slider" module="JL_BannerSlider" sortOrder="2" parent="JL_BannerSlider::module_title" action="jlbannerslider/sliders/index" resource="JL_BannerSlider::manage_sliders" />
+        <add id="JL_BannerSlider::vendor_title" title="JL " module="JL_BannerSlider" sortOrder="20" resource="Mageplaza_BannerSlider::bannerslider" />
+        <add id="JL_BannerSlider::module_title" title="JL Banner Slider" module="JL_BannerSlider" sortOrder="20" parent="JL_BannerSlider::vendor_title" resource="JL_BannerSlider::bannerslider" />
+        <add id="JL_BannerSlider::manage_banners" title="Manage Banner" module="JL_BannerSlider" sortOrder="1" parent="JL_BannerSlider::module_title" action="jlbannerslider/banner/index" resource="JL_BannerSlider::banners" />
+        <add id="JL_BannerSlider::manage_sliders" title="Manage Slider" module="JL_BannerSlider" sortOrder="2" parent="JL_BannerSlider::module_title" action="jlbannerslider/slider/index" resource="JL_BannerSlider::sliders" />
         <add id="JL_BannerSlider::module_config" title="Configuration" module="JL_BannerSlider" sortOrder="3" parent="JL_BannerSlider::module_title" action="adminhtml/system_config/edit/section/jlbannerslider" resource="JL_BannerSlider::configuration"/>
     </menu>
 </config>

@@ -3,23 +3,16 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="JL_BannerSlider::title_vendor" title="JL "
-                          sortOrder="100">
-                    <resource id="JL_BannerSlider::title_module" title="JL Banner Slider"
-                              sortOrder="100">
-                        <resource id="JL_BannerSlider::manage_banners" title="Manage Banners"
-                                  sortOrder="2" />
-                        <resource id="JL_BannerSlider::manage_sliders" title="Manage Sliders"
-                                  sortOrder="3" />
-                        <resource id="JL_BannerSlider::configuration" title="Configurations"
-                                  sortOrder="4" />
+                <resource id="Magento_Backend::admin">
+                    <resource id="JL_BannerSlider::bannerslider" title="JL Banner Slider" sortOrder="55">
+                        <resource id="JL_BannerSlider::banner" title="Manage Banner" sortOrder="10"/>
+                        <resource id="JL_BannerSlider::slider" title="Manage Slider" sortOrder="20"/>
                     </resource>
-                </resource>
-                <resource id="Magento_Backend::stores">
-                    <resource id="Magento_Backend::stores_settings">
-                        <resource id="Magento_Config::config">
-                            <resource id="JL_BannerSlider::system_config"
-                                      title="JL Banner Slider Section" />
+                    <resource id="Magento_Backend::stores">
+                        <resource id="Magento_Backend::stores_settings">
+                            <resource id="Magento_Config::config">
+                                <resource id="JL_BannerSlider::configuration" title="JL Banner Slider"/>
+                            </resource>
                         </resource>
                     </resource>
                 </resource>

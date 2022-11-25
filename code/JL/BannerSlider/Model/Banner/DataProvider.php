@@ -6,35 +6,28 @@ use JL\BannerSlider\Model\ResourceModel\Banner\CollectionFactory;
 
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
-    /**
-     * @var array
-     */
     protected $loadedData;
-
     protected $collection;
-
-    // @codingStandardsIgnoreStart
     public function __construct(
         $name,
         $primaryFieldName,
         $requestFieldName,
-        CollectionFactory $JobCollectionFactory,
+        CollectionFactory $collectionFactory,
         array $meta = [],
         array $data = []
-    ) {
-        $this->collection = $JobCollectionFactory->create();
+    )
+    {
+        $this->collection = $collectionFactory->create();
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
-    // @codingStandardsIgnoreEnd
-
     public function getData()
     {
         if (isset($this->loadedData)) {
             return $this->loadedData;
         }
         $items = $this->collection->getItems();
-        foreach ($items as $Job) {
-            $this->loadedData[$Job->getId()] = $Job->getData();
+        foreach ($items as $item) {
+            $this->loadedData[$item->getId()] = $item->getData();
         }
         return $this->loadedData;
     }

@@ -7,6 +7,10 @@
         <column xsi:type="smallint" name="status" default="1" nullable="false" comment="Status"/>
         <column xsi:type="smallint" name="autoplay" default="1" nullable="false" comment="Autoplay"/>
         <column xsi:type="varchar" name="autoplay_time" nullable="true" length="128" comment="Autoplay Time"/>
+        <column xsi:type="timestamp" name="creation_time" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <column xsi:type="timestamp" name="update_time" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Modification Time"/>
 
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="slider_id"/>
@@ -22,6 +26,10 @@
         <column xsi:type="text" name="content_mobile" nullable="true" comment="Content Mobile"/>
         <column xsi:type="text" name="image_mobile" nullable="true" comment="Image Mobile"/>
         <column xsi:type="varchar" name="url" nullable="true" length="128" comment="URL"/>
+        <column xsi:type="timestamp" name="creation_time" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <column xsi:type="timestamp" name="update_time" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Modification Time"/>
 
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="banner_id"/>
@@ -31,6 +39,11 @@
     <table name="jl_bannerslider_slider_banner" resource="default" engine="innodb" comment="banner">
         <column xsi:type="int" name="slider_id" unsigned="true" nullable="false" comment="Slider ID"/>
         <column xsi:type="int" name="banner_id" unsigned="true" nullable="false" comment="Banner ID"/>
+        <column xsi:type="timestamp" name="creation_time" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <column xsi:type="timestamp" name="update_time" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Modification Time"/>
+
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="slider_id"/>
             <column name="banner_id"/>

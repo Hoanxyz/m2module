@@ -18,7 +18,7 @@ class Delete extends Generic implements ButtonProviderInterface
                 'label' => __('Delete Banner'),
                 'class' => 'delete',
                 'on_click' => 'deleteConfirm(\''
-                    . __('Are you sure you want to delete this contact ?')
+                    . __('Are you sure you want to delete this banner ?')
                     . '\', \'' . $this->getDeleteUrl() . '\')',
                 'sort_order' => 20,
             ];
