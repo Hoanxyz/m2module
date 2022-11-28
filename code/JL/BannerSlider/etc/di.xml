@@ -22,8 +22,8 @@
 
     <virtualType name="JL\BannerSlider\BannerImageUpload" type="Magento\Catalog\Model\ImageUploader">
         <arguments>
-            <argument name="baseTmpPath" xsi:type="string">jlbannerslider/banner/tmp/image</argument>
-            <argument name="basePath" xsi:type="string">jlbannerslider/banner/image</argument>
+            <argument name="baseTmpPath" xsi:type="string">jl/bannerslider/banner/tmp/images</argument>
+            <argument name="basePath" xsi:type="string">jl/bannerslider/banner/images</argument>
             <argument name="allowedExtensions" xsi:type="array">
                 <item name="jpg" xsi:type="string">jpg</item>
                 <item name="jpeg" xsi:type="string">jpeg</item>

@@ -18,6 +18,7 @@
             <button name="save" class="JL\BannerSlider\Block\Adminhtml\Banner\Edit\Button\Save"/>
             <button name="delete" class="JL\BannerSlider\Block\Adminhtml\Banner\Edit\Button\Delete"/>
             <button name="back" class="JL\BannerSlider\Block\Adminhtml\Banner\Edit\Button\Back"/>
+            <button name="save_and_continue" class="JL\BannerSlider\Block\Adminhtml\Banner\Edit\Button\SaveAndContinueButton"/>
         </buttons>
         <namespace>jlbannerslider_banner_form</namespace>
         <dataScope>data</dataScope>
@@ -96,12 +97,6 @@
                 <dataScope>name</dataScope>
             </settings>
         </field>
-    </fieldset>
-    <fieldset name="content" sortOrder="10">
-        <settings>
-            <collapsible>true</collapsible>
-            <label translate="true">Content</label>
-        </settings>
         <field name="url" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -114,6 +109,12 @@
                 <dataScope>url</dataScope>
             </settings>
         </field>
+    </fieldset>
+    <fieldset name="content" sortOrder="10">
+        <settings>
+            <collapsible>true</collapsible>
+            <label translate="true">Content</label>
+        </settings>
         <field name="images" formElement="imageUploader">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -132,7 +133,7 @@
                     <settings>
                         <required>false</required>
                         <uploaderConfig>
-                            <param xsi:type="url" name="url" path="jlbannerslider/banner/upload"/>
+                            <param xsi:type="url" name="url" path="jlbannerslider/banner_image/upload"/>
                         </uploaderConfig>
                         <previewTmpl>Magento_Catalog/image-preview</previewTmpl>
                         <openDialogTitle>Media Gallery</openDialogTitle>
@@ -143,7 +144,6 @@
                 </imageUploader>
             </formElements>
         </field>
-
         <field name="content_desktop" formElement="wysiwyg">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -165,17 +165,34 @@
                 </wysiwyg>
             </formElements>
         </field>
-        <field name="image_mobile" formElement="input">
+        <field name="images_mobile" formElement="imageUploader">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">banner</item>
                 </item>
             </argument>
             <settings>
-                <dataType>text</dataType>
-                <label translate="true">Image Desktop</label>
-                <dataScope>image_mobile</dataScope>
+                <elementTmpl>ui/form/element/uploader/image</elementTmpl>
+                <dataType>string</dataType>
+                <label translate="true">Mobile Image</label>
+                <visible>true</visible>
+                <required>false</required>
             </settings>
+            <formElements>
+                <imageUploader>
+                    <settings>
+                        <required>false</required>
+                        <uploaderConfig>
+                            <param xsi:type="url" name="url" path="jlbannerslider/banner_image/upload"/>
+                        </uploaderConfig>
+                        <previewTmpl>Magento_Catalog/image-preview</previewTmpl>
+                        <openDialogTitle>Media Gallery</openDialogTitle>
+                        <initialMediaGalleryOpenSubpath>catalog/category</initialMediaGalleryOpenSubpath>
+                        <allowedExtensions>jpg jpeg gif png</allowedExtensions>
+                        <maxFileSize>4194304</maxFileSize>
+                    </settings>
+                </imageUploader>
+            </formElements>
         </field>
         <field name="content_mobile" formElement="wysiwyg">
             <argument name="data" xsi:type="array">

@@ -12,9 +12,16 @@ class Save extends \Magento\Backend\App\Action
     /**
      * Authorization level of a basic admin session
      */
-    const ADMIN_RESOURCE = 'Robin_Banner::save';
+    const ADMIN_RESOURCE = 'JL_BannerSlider::save';
 
+    /**
+     * @var PostDataProcessor
+     */
     protected $dataProcessor;
+
+    /**
+     * @var DataPersistorInterface
+     */
     protected $dataPersistor;
 
     /**
@@ -43,8 +50,23 @@ class Save extends \Magento\Backend\App\Action
             if (isset($data['status']) && $data['status'] === 'true') {
                 $data['status'] = Banner::STATUS_ENABLED;
             }
+
             if (empty($data['banner_id'])) {
                 $data['banner_id'] = null;
+            }
+
+            if (empty($data['images'])) {
+                $data['images'] = null;
+                $data['image_desktop'] = null;
+            } else {
+                $data['image_desktop'] = $data['images'][0]['name'];
+            }
+
+            if (empty($data['images_mobile'])) {
+                $data['images_mobile'] = null;
+                $data['image_mobile'] = null;
+            } else {
+                $data['image_mobile'] = $data['images_mobile'][0]['name'];
             }
 
             // Init model and load by ID if exists
@@ -69,7 +91,7 @@ class Save extends \Magento\Backend\App\Action
                 $this->messageManager->addSuccess(__('You saved the banner.'));
                 $this->dataPersistor->clear('banner');
                 if ($this->getRequest()->getParam('back')) {
-                    return $resultRedirect->setPath('*/*/edit', ['id' => $model->getId(), '_current' => true]);
+                    return $resultRedirect->setPath('*/*/edit', ['banner_id' => $model->getId(), '_current' => true]);
                 }
                 return $resultRedirect->setPath('*/*/');
             } catch (\Exception $e) {
@@ -77,7 +99,7 @@ class Save extends \Magento\Backend\App\Action
             }
 
             $this->dataPersistor->set('banner', $data);
-            return $resultRedirect->setPath('*/*/edit', ['banner_id' => $this->getRequest()->getParam('id')]);
+            return $resultRedirect->setPath('*/*/edit', ['banner_id' => $this->getRequest()->getParam('banner_id')]);
         }
 
         // Redirect to List page
